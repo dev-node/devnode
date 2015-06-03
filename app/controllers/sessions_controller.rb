@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
 		# render text: request.env['omniauth.auth'].to_json
 		begin
 	    @user = User.from_omniauth(request.env['omniauth.auth'])
+	    if @user.profile == nil
+	    	@profile = Profile.from_omniauth(request.env['omniauth.auth'])
+	    	@user.profile = @profile
+	    end
 	    session[:user_id] = @user.id
 	    flash[:success] = "Welcome, #{@user.nickname}!"
 	  rescue
