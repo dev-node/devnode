@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :profiles
+  resources :projects
 
   root to: 'pages#index'
 
