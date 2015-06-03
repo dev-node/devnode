@@ -1,0 +1,9 @@
+<h1><%= @project.name %></h1>
+
+<h3><%= @project.description %></h3>
+
+<%= link_to @project.video, "http://#{@project.video}"%><br>
+
+<%= link_to @project.repo, "http://#{@project.repo}" %><br>
+
+<%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
