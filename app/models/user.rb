@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :profile
+	has_many :projects
 
 	class << self
 		def from_omniauth(auth_hash)
