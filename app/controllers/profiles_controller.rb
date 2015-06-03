@@ -5,6 +5,10 @@ class ProfilesController < ApplicationController
 		@profiles = Profile.all
 	end
 
+	def new
+		@profile = Profile.new
+	end
+
 	def show
 	end
 
