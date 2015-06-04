@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   resources :profiles
-  resources :projects
   resources :users
+  resources :projects do
+    member do
+      put "like",  to: "projects#upvote"
+      put "dislike", to: "projects#downvote"
+    end
+  end
   root to: 'pages#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
