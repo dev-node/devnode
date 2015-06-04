@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :profiles
-  resources :projects
+  resources :projects do
+    member do
+      put "like",  to: "projects#upvote"
+      puts "dislike", to: "projects#downvote"
+    end
+  end
 
   root to: 'pages#index'
 
