@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :profiles
   resources :projects
-
+  resources :users
   root to: 'pages#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'

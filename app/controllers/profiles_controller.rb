@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
 	before_action :set_profile, only: [:show, :edit, :update, :destroy]
+	before_action :check_current_user, only: [:edit, :update, :destroy]
 
 	def index
 		@profiles = Profile.all
@@ -36,6 +37,13 @@ class ProfilesController < ApplicationController
 	end
 
 	private
+
+		def check_current_user
+			unless current_user && @profile.user_id == current_user.id
+				flash[:warning] = "You have to be logged in as that user to do that!"
+				redirect_to root_path
+			end
+		end
 
 		def set_profile
 			@profile = Profile.find(params[:id])
