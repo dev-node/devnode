@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :user
+  acts_as_votable
   
   # #Set video url to include http:// if not included
   # def set_video_url

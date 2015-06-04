@@ -45,6 +45,18 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def upvote
+		@project = Project.find(params[:id])
+		@project.upvote_by current_user
+		redirect_to :back
+	end
+
+	def downvote
+		@project = Project.find(params[:id])
+		@project.downvote_by current_user
+		redirect_to :back
+	end
+
 	private
 
 		def set_project
