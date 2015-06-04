@@ -2,8 +2,9 @@
 
 <h3><%= @project.description %></h3>
 
-<%= link_to @project.video, "http://#{@project.video}"%><br>
+<%= link_to "Video Pitch", "http://#{@project.video}"%><br>
 
-<%= link_to @project.repo, "http://#{@project.repo}" %><br>
+<%= link_to 'Project Repo', "http://#{@project.repo}" %><br>
 
-<%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+<%= link_to 'Edit', edit_project_path(@project) %>
