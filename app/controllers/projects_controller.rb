@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @project.update(project_params)
-				format.html { redirect_to @project, notice; 'Project was successfully updated.' }
+				format.html { redirect_to @project, notice: 'Project was successfully updated.' }
 				format.json { render :show, status: :ok, location: @project }
 			else
 				format.html { render :edit }
@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
 	def destroy
 		@project.destroy
 		respond_to do |format|
-			format.html { redirect_to root_path, notice; 'Project was successfully destroyed.' }
+			format.html { redirect_to root_path, notice: 'Project was successfully destroyed.' }
 			format.json { head :no_content }
 		end
 	end

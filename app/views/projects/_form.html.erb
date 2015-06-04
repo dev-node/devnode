@@ -1,0 +1,30 @@
+<%= form_for @project do |f| %>
+	<% if current_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% current_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3><%= f.label :name %></h3>
+  <%= f.text_field :name %>
+
+  <h3><%= f.label :description %></h3>
+  <%= f.text_area :description, placeholder: "255 characters max" %>
+
+	<h3><%= f.label :video %></h3>
+  <%= f.text_field :video, placeholder: "Add Vimeo Link" %>
+
+  <h3><%= f.label :repo %></h3>
+  <%= f.text_field :repo, placeholder: "Add Project Repo Link" %>
+  
+  <br>
+  <%= f.submit %>
+
+<% end %>
+  
