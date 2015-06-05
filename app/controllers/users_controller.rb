@@ -10,6 +10,10 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 	end
 
 	def show
+		repo_json = (Github.repos.list user: @user.nickname).to_json
+		parsed_repos = JSON.parse repo_json
+		@repo_hash = {}
+		parsed_repos.each {|n| @repo_hash[n['name']] = n['html_url']}
 	end
 
 	def edit
