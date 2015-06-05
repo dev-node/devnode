@@ -1,8 +1,19 @@
 <h1>All Projects</h1>
 
+<div id="tag_cloud">
+	<% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+		<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+	<% end %>
+</div>
+
 <% @projects.each do |project| %>
   <%#= link_to (image_tag art.artpic.url(:medium)), project %>
   <h2><%= link_to (project.name), project %></h2>
+
+<!-- prints tags only if tags exist -->
+<% if project.tag_list.size > 0 %>
+  <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
+<% end %>
 	
 	<div class="btn-group">
 		<%= link_to like_project_path(project), method: :put, class: "btn btn-default btn-sm" do %>

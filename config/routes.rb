@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'tags/:tag', to: 'projects#index', as: :tag
   resources :profiles
   resources :users
   resources :projects do

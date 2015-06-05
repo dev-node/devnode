@@ -22,6 +22,9 @@
 
   <h3><%= f.label :repo %></h3>
   <%= f.text_field :repo, placeholder: "Add Project Repo Link" %>
+
+  <h3><%= f.label :tag_list, "Tags (separated by commas)" %></h3>
+  <%= f.text_field :tag_list %>
   
   <br>
   <%= f.submit %>

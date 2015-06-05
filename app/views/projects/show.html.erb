@@ -2,9 +2,14 @@
 
 <h3><%= @project.description %></h3>
 
-<%= link_to "Video Pitch", "http://#{@project.video}"%><br>
+<p><%= link_to "Video Pitch", "http://#{@project.video}"%></p>
 
-<%= link_to 'Project Repo', "http://#{@project.repo}" %><br>
+<p><%= link_to 'Project Repo', "http://#{@project.repo}" %></p>
+
+<!-- prints tags only if tags exist -->
+<% if @project.tag_list.size > 0 %>
+  <p>Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
+<% end %>
 
 <div class="btn-group">
 		<%= link_to like_project_path(@project), method: :put, class: "btn btn-default btn-sm" do %>
