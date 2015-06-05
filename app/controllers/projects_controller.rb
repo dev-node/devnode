@@ -1,9 +1,13 @@
 class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :upvote]
 	before_action :check_current_user, only: [:edit, :update, :destroy]
-	
+
 	def index
-		@projects = Project.all
+		if params[:tag]
+			@projects = Project.tagged_with(params[:tag])
+		else
+			@projects = Project.all
+		end
 	end
 
 	def show
@@ -69,6 +73,6 @@ class ProjectsController < ApplicationController
 		end
 
 		def project_params
-			params.require(:project).permit(:name, :description, :video, :repo)
+			params.require(:project).permit(:name, :description, :video, :repo, :tag_list)
 		end
 end
