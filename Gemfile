@@ -19,6 +19,7 @@ gem 'omniauth-github'
 gem 'github_api'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem "acts_as_follower"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
