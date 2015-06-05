@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :upvote]
-
+	before_action :check_current_user, only: [:edit, :update, :destroy]
+	
 	def index
 		@projects = Project.all
 	end
@@ -56,6 +57,12 @@ class ProjectsController < ApplicationController
 	end
 
 	private
+		def check_current_user
+			unless current_user && @project.user_id == current_user.id
+				flash[:warning] = "You have to be logged in as that user to do that!"
+				redirect_to root_path
+			end
+		end
 
 		def set_project
 			@project = Project.find(params[:id])
