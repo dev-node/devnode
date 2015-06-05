@@ -1,8 +1,13 @@
+require 'elasticsearch/model'
+
 class Project < ActiveRecord::Base
   belongs_to :user
   acts_as_votable
   acts_as_taggable
   
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   # #Set video url to include http:// if not included
   # def set_video_url
   #   url = @project.video
@@ -18,3 +23,5 @@ class Project < ActiveRecord::Base
   #  end
   #end
 end
+
+Project.import # for auto sync model with elastic search

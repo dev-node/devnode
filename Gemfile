@@ -17,6 +17,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'bootstrap-sass'
 gem 'omniauth-github'
 gem 'github_api'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
