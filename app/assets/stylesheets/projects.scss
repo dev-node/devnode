@@ -1,3 +1,12 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Different sizes for tag cloud based on number of tags
+#tag_cloud {
+	width: 400px;
+	line-height: 1.6em;
+		.s { font-size: 0.8em; }
+		.m { font-size: 1.2em; }
+		.l { font-size: 1.8em; }
+}
