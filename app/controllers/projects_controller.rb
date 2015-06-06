@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :follow]
+	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :upvote, :follow]
 	before_action :check_current_user, only: [:edit, :update, :destroy]
 
 	def index
