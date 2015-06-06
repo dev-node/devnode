@@ -45,7 +45,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 			@user = User.find(params[:id])
 		end
 
-		def profile_params
+		def user_params
 			params.require(:user).permit(:nickname, :email)
 		end
 
