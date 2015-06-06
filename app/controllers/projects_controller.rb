@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :upvote]
+	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :follow]
 	before_action :check_current_user, only: [:edit, :update, :destroy]
 
 	def index
@@ -59,6 +59,12 @@ class ProjectsController < ApplicationController
 		@project.downvote_by current_user
 		redirect_to :back
 	end
+
+	def follow
+    @project = Project.find(params[:id])
+    current_user.follow(@project)
+    redirect_to :back
+  end
 
 	private
 		def check_current_user

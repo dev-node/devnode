@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   acts_as_votable
   acts_as_taggable
+  acts_as_followable
   
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks

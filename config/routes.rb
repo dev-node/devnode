@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     member do
       put "like",  to: "projects#upvote"
       put "dislike", to: "projects#downvote"
+      get :follow
+      get :unfollow
     end
   end
   root to: 'pages#index'
