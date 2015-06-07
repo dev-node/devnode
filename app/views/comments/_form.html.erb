@@ -1,4 +1,4 @@
-<%= form_for(@comment, remote: true) do |f| %>
+<%= form_for @comment, remote: true do |f| %>
 	<% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -13,22 +13,8 @@
 
   <%= f.label :comment %><br>
   <%= f.text_area :comment, placeholder: "Add a new comment." %>
-
-  <% if @project.nil? %>
-
-  <div class="field">
-
-  <%= f.label :project_id %><br>
-
-  <%= f.text_field :project_id %>
-
-  </div>
-
-  <% else %>
   
   <%= f.hidden_field :project_id, value: @project.id %>
-
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>

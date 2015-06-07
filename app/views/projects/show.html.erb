@@ -28,12 +28,16 @@
 
 <br><%= twitter_button %>
 
-<% @project.comments.order(created_at: :desc).each do |comment| %>
-	<p>Posted by <%= comment.author %> at <%= time_ago_in_words(comment.created_at)%> ago</p>
-	<p><%= comment.comment %></p>
-<% end %>
-
 <%= render 'comments/form' %>
+
+<div id="comment_list">
+		<% @project.comments.order(created_at: :desc).each do |comment| %>
+				<p><%= comment.comment %></p>
+				<p>Posted by <%= comment.author %> at <%= time_ago_in_words(comment.created_at)%> ago</p>
+		<% end %>
+	</div>
+
+
 
 <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Edit', edit_project_path(@project) %>

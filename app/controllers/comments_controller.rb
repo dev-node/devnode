@@ -5,11 +5,16 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.author = current_user.nickname
     if @comment.save
-      format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-      format.json { render :show, status: :created, location: @comment }
+      respond_to do |format|
+        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: @comment }
+        format.js
+      end
     else
-      format.html { render :new }
-      format.json { render json: @comment.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        format.html { render :new }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 
