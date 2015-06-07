@@ -17,6 +17,12 @@
   <h3><%= f.label :description %></h3>
   <%= f.text_area :description, placeholder: "255 characters max" %>
 
+  <h3><%= f.label :fulldescription %></h3>
+  <%= f.text_area :fulldescription, placeholder: "Full description of project" %>
+
+  <h3><%= f.label :languages %></h3>
+  <%= f.text_area :languages, placeholder: "Languages project will use" %>
+
 	<h3><%= f.label :video %></h3>
   <%= f.text_field :video, placeholder: "Add Vimeo Link" %>
 
@@ -25,6 +31,8 @@
 
   <h3><%= f.label :tag_list, "Tags (separated by commas)" %></h3>
   <%= f.text_field :tag_list %>
+
+
   
   <br>
   <%= f.submit %>

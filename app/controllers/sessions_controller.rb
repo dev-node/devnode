@@ -12,7 +12,11 @@ class SessionsController < ApplicationController
 	  rescue
 	    flash[:warning] = "There was an error while trying to authenticate you..."
 	  end
+  	if @user.profile.bio == nil	
+  		redirect_to edit_profile_path(@user.profile)
+  	else
   		redirect_to root_path
+		end
 	end
 
 	def destroy
