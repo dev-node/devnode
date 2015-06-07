@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+
   get 'tags/:tag', to: 'projects#index', as: :tag
   resources :profiles
   resources :users
