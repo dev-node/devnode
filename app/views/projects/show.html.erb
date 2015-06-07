@@ -11,8 +11,10 @@
   <p>Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
 <% end %>
 
-<% if current_user %>
+<% if current_user && !current_user.following?(@project) %>
 	<%= link_to "Follow", follow_project_path(@project)%>
+<% elsif current_user && current_user.following?(@project) %>
+	<%= link_to "Unfollow", unfollow_project_path(@project)%>
 <% end %>
 
 <div class="btn-group">
