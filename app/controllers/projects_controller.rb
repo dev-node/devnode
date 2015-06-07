@@ -67,6 +67,12 @@ class ProjectsController < ApplicationController
     redirect_to :back
   end
 
+  def unfollow
+    @project = Project.find(params[:id])
+    current_user.stop_following(@project)
+    redirect_to :back
+  end
+
 	private
 		def check_current_user
 			unless current_user && @project.user_id == current_user.id
