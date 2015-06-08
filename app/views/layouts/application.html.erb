@@ -2,27 +2,25 @@
 <html>
 <head>
   <title>Devnode</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-fixed">
 	  <div class="container">
 	    <div class="navbar-header">
-	      <%= link_to 'DevNode', root_path, class: 'navbar-brand' %>
+	      <%= link_to (image_tag "devnode_logo_sm.png", id: "logo-image"), root_path %>
 	    </div>
 	    <div id="navbar">
-	      <% if current_user %>
 	        <ul class="nav navbar-nav pull-right">
-	          <!-- <li><%#= image_tag current_user.image_url, alt: current_user.name %></li> -->
-	          <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+	          <% if current_user %>
+		          <li><%= link_to 'Log Out', logout_path, method: :delete %></li>
+		        <% else %>
+		        <li><%= link_to '<i class="fa fa-github" style="font-size: 17px;"></i> GITHUB LOGIN'.html_safe, '/auth/github' %></li>
+		        <% end %>
 	        </ul>
-	      <% else %>
-	        <ul class="nav navbar-nav">
-	          <li><%= link_to 'Login with GitHub', '/auth/github' %></li>
-	        </ul>
-	      <% end %>
 	    </div>
 	  </div>
 	</nav>

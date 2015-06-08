@@ -17,3 +17,29 @@
 @import "bootstrap";
 @import 'bootstrap/theme';
 @import "projects";
+
+$green-color: #5aa02c;
+$blue-color: #329BC2;
+
+
+#logo-image {
+  height: 40px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.navbar {
+  border-radius: 0px;
+  padding-bottom: 0px;
+  background-color: white;
+}
+
+.navbar-nav li a {
+  color: $blue-color;
+}
+
+.navbar-nav li a:hover {
+  color: darken($blue-color, 20%);
+  background-color: transparent;
+  transition: all .4s ease-in-out;
+}
