@@ -9,7 +9,7 @@ namespace :tempdb do
 
 Hella jean shorts plaid, Wes Anderson taxidermy actually Pinterest keytar polaroid normcore. Shoreditch disrupt single-origin coffee, VHS mixtape actually McSweeney's. Ugh Shoreditch Pinterest, selfies beard fap shabby chic kogi typewriter salvia YOLO. 3 wolf moon heirloom master cleanse Etsy, next level PBR&B hashtag you probably haven't heard of them street art brunch. Truffaut lumbersexual cronut occupy Pinterest slow-carb, heirloom messenger bag church-key cold-pressed. Hashtag vegan put a bird on it, selvage sartorial skateboard ennui synth High Life fap occupy cronut keffiyeh cred brunch. Wolf Williamsburg banh mi, actually Pitchfork post-ironic cred meditation literally bitters.", 
         languages: "Ruby on Rails, JavaScript, HTML, CSS",
-        facebook: "https://www.facebook.com/allison.a.leonardo", twitter: "https://twitter.com/stephentwitte", trello: "https://trello.com/b/n04zdmSe/devnode" )
+        facebook: "https://www.facebook.com/allison.a.leonardo", twitter: "https://twitter.com/stephentwitte", trello: "https://trello.com/b/n04zdmSe/devnode", tag_list: "Social, Game, Civic" )
     end
 
     25.times do |n|
@@ -20,7 +20,7 @@ Hella jean shorts plaid, Wes Anderson taxidermy actually Pinterest keytar polaro
 
 Hella jean shorts plaid, Wes Anderson taxidermy actually Pinterest keytar polaroid normcore. Shoreditch disrupt single-origin coffee, VHS mixtape actually McSweeney's. Ugh Shoreditch Pinterest, selfies beard fap shabby chic kogi typewriter salvia YOLO. 3 wolf moon heirloom master cleanse Etsy, next level PBR&B hashtag you probably haven't heard of them street art brunch. Truffaut lumbersexual cronut occupy Pinterest slow-carb, heirloom messenger bag church-key cold-pressed. Hashtag vegan put a bird on it, selvage sartorial skateboard ennui synth High Life fap occupy cronut keffiyeh cred brunch. Wolf Williamsburg banh mi, actually Pitchfork post-ironic cred meditation literally bitters.", 
         languages: "Ruby on Rails, JavaScript, HTML, CSS",
-        facebook: "https://www.facebook.com/allison.a.leonardo", twitter: "https://twitter.com/stephentwitte", trello: "https://trello.com/b/n04zdmSe/devnode" )
+        facebook: "https://www.facebook.com/allison.a.leonardo", twitter: "https://twitter.com/stephentwitte", trello: "https://trello.com/b/n04zdmSe/devnode", tag_list: "Social, Game, Civic" )
     end
 
   end
