@@ -10,6 +10,8 @@ class Project < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  
+  #https://vimeo.com/128028122
   # #Set video url to include http:// if not included
   # def set_video_url
   #   url = @project.video

@@ -1,8 +1,8 @@
 <h1><%= @project.name %></h1>
+<h4>by <%= link_to @project.user.nickname, user_path(@project.user.id) %></h4>
 
 <h3><%= @project.description %></h3>
-
-<p><%= link_to "Video Pitch", "http://#{@project.video}"%></p>
+<iframe src=<%= @project.video %> width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 <p><%= link_to 'Project Repo', "http://#{@project.repo}" %></p>
 

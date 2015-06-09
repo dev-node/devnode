@@ -24,6 +24,8 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(project_params)
 		@project.user_id = current_user.id
+		vimeo = (@project.video).gsub("vimeo.com/","player.vimeo.com/video/")
+		@project.video = vimeo
 		if @project.save
 			redirect_to @project
 		else
