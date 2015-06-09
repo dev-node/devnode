@@ -3,11 +3,15 @@ class ProjectsController < ApplicationController
 	before_action :check_current_user, only: [:edit, :update, :destroy]
 
 	def index
-		if params[:tag]
+		if !params[:q].nil?
+      @projects = Project.search params[:q]
+      redirect_to :controller => 'search', :q => params[:q]
+		elsif params[:tag]
 			@projects = Project.tagged_with(params[:tag])
 		else
 			@projects = Project.all
 		end
+		
 	end
 
 	def show
@@ -86,6 +90,6 @@ class ProjectsController < ApplicationController
 		end
 
 		def project_params
-			params.require(:project).permit(:name, :description, :video, :repo, :tag_list, :fulldescription, :languages)
+			params.require(:project).permit(:name, :description, :video, :repo, :tag_list, :fulldescription, :languages, :q)
 		end
 end
