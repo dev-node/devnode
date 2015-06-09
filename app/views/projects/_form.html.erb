@@ -19,7 +19,7 @@
   <%= f.text_area :description, placeholder: "255 Characters Max" %>
 
   <h3>Step 3: Give a <span>persuasive</span> pitch and attract a team</h3>
-  <h4>Upload a <a href="https://www.vimeo.com">Vimeo</a> video to get your project featured.</h4>
+  <h4>Upload a <%= link_to "Vimeo", "https://www.vimeo.com", :target => '_blank' %> video to get your project featured.</h4>
   <%= f.text_field :video, placeholder: "Enter Vimeo Link" %>
 
   <h3>Step 4: Provide project details</h3>

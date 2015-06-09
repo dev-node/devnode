@@ -1,10 +1,15 @@
 <h1><%= @project.name %></h1>
+<h3><%= @project.description %></h3>
 <h4>by <%= link_to @project.user.nickname, user_path(@project.user.id) %></h4>
 
-<h3><%= @project.description %></h3>
-<iframe src=<%= @project.video %> width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<!-- shows embedded vimeo video only if the video exists -->
+<% unless @project.video == "" %>  
+	<iframe src=<%= @project.video %> width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<% end %>
 
-<p><%= link_to 'Project Repo', "http://#{@project.repo}" %></p>
+
+<p>Useful Links</p>
+<p><%= link_to 'Github Repo', "http://#{@project.repo}" if @project.repo.nil? %></p>
 
 <!-- prints tags only if tags exist -->
 <% if @project.tag_list.size > 0 %>
