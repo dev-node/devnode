@@ -3,7 +3,9 @@
 <head>
   <title>Devnode</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'> -->
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Play:400,700' rel='stylesheet' type='text/css'> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -28,7 +30,7 @@
             <li>
             	<%= form_tag(projects_path, :method => "get", class: "navbar-form" ) do %>
 							  <p>
-							    <i class="fa fa-search" style="margin-right: 5px; font-size: 16px; color: grey;"></i><%= text_field_tag :q, params[:q], class: "span2", placeholder: "Search Articles" %>
+							    <i class="fa fa-search" style="margin-left: 10px; margin-right: 5px; font-size: 1.3em; color: grey;"></i><%= text_field_tag :q, params[:q], class: "span2", placeholder: "Search Articles" %>
 							    <!-- <button class="btn" type="submit"><i class="icon-search">Search</i></button> -->
 							  </p>
 							<% end %>
@@ -38,7 +40,7 @@
             <% if current_user %>
 		          <li><%= link_to 'LOG OUT', logout_path, method: :delete %></li>
 		        <% else %>
-		        <li><%= link_to '<i class="fa fa-github" style="font-size: 17px;"></i> GITHUB LOGIN'.html_safe, '/auth/github' %></li>
+		        <li><%= link_to '<i class="fa fa-github" style="font-size: 1.1em;"></i> GITHUB LOGIN'.html_safe, '/auth/github' %></li>
 		        <% end %>
           </ul>
         </div><!--/.nav-collapse -->

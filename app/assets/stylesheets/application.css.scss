@@ -13,17 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+$grid-float-breakpoint: 1000px;
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'bootstrap/theme';
+@import "bootstrap/theme";
 @import "projects";
 
-$play: 'Play', sans-serif;
+$font: 'Droid Sans', sans-serif;
 $green: #5aa02c;
 $blue: #329BC2;
 
 h1, h2, h3, h4, h5, h6 {
-  /*font-family: $play;*/
+  font-family: $font;
 }
 
 .navbar-form {
@@ -58,9 +60,9 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-nav li a:visited,
 .navbar-nav li a {
   color: black;
-  /*font-family: $play;*/
+  font-family: $font;
   font-size: 1.3em;
-  padding-top: 20px;
+  padding-top: 22px;
   padding-bottom: 0px;
 }
 
