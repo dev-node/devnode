@@ -32,8 +32,8 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(project_params)
 		@project.user_id = current_user.id
-		vimeo = (@project.video).gsub("vimeo.com/","player.vimeo.com/video/")
-		@project.video = vimeo
+		video_hash = JSON.parse(open("https://vimeo.com/api/oembed.json?url=#{@project.video}").read)
+  	@project.video_thumb = video_hash['thumbnail_url']
 		if @project.save
 			redirect_to @project
 		else
