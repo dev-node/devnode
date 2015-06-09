@@ -14,6 +14,10 @@ class ProjectsController < ApplicationController
 		
 	end
 
+	def featured
+		@projects = Project.where.not(:video => "")
+	end
+
 	def show
 		@comment = Comment.new
 	end

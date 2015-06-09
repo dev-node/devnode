@@ -1,0 +1,9 @@
+
+
+<h1>Featured Projects</h1>
+
+<% @projects.each do |project| %>
+  <%#= link_to (image_tag art.artpic.url(:medium)), project %>
+  <h2><%= link_to (project.name), project %></h2>
+  
+<% end %>
