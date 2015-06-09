@@ -1,42 +1,66 @@
 <h1><%= @project.name %></h1>
-<h3><%= @project.description %></h3>
 <h4>by <%= link_to @project.user.nickname, user_path(@project.user.id) %></h4>
+<h3><%= @project.description %></h3>
 
-<!-- shows embedded vimeo video only if the video exists -->
+<!-- VIDEO: shows embedded vimeo video only if the video exists -->
 <% unless @project.video == "" %>  
 	<iframe src=<%= @project.video_embed %> width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <% end %>
 
-
+<!-- USEFUL LINKS: facebook, twitter, trello, repo -->
 <p>Useful Links</p>
-<p><%= link_to 'Github Repo', "http://#{@project.repo}" if @project.repo.nil? %></p>
+<p><i class="fa fa-github"></i><%= link_to 'Github Repo', "http://#{@project.repo}" unless @project.repo.nil? %></p>
+<p><i class="fa fa-trello"></i><%= link_to 'Trello', "http://#{@project.trello}" unless @project.trello.nil? %></p>
+<p><i class="fa fa-facebook"></i><%= link_to 'Facebook', "http://#{@project.facebook}" unless @project.facebook.nil? %></p>
+<p><i class="fa fa-twitter"></i><%= link_to 'Twitter', "http://#{@project.twitter}" unless @project.twitter.nil? %></p>
 
-<!-- prints tags only if tags exist -->
+<!-- TAGS: prints tags only if tags exist -->
 <% if @project.tag_list.size > 0 %>
   <p>Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
 <% end %>
 
+<!-- FOLLOW -->
 <% if current_user && !current_user.following?(@project) %>
-	<%= link_to "Follow", follow_project_path(@project)%>
+	<%= link_to "Join the Team!", follow_project_path(@project), class: "btn btn-large btn-primary" %>
 <% elsif current_user && current_user.following?(@project) %>
-	<%= link_to "Unfollow", unfollow_project_path(@project)%>
+	<%= link_to "Unfollow", unfollow_project_path(@project), class: "btn btn-large btn-primary"%>
+<% end %>
+<br>
+
+<!-- LIKE/DISLIKE -->
+<div class="btn-group">
+	<%= link_to like_project_path(@project), method: :put, class: "btn btn-default btn-sm" do %>
+		<i class="fa fa-thumbs-o-up"></i>	
+	<% end %>
+
+	<div class="vote_num">
+		<%= @project.get_upvotes.size - @project.get_downvotes.size %>
+	</div>
+	<%= link_to dislike_project_path(@project), method: :put, class: "btn btn-default btn-sm" do %>
+		<i class="fa fa-thumbs-o-down"></i>
+	<% end %>
+</div>
+<br>
+
+<!-- FULL DESCRIPTION -->
+<%= @project.fulldescription %>
+<br>
+
+<!-- TWEET -->
+<%= twitter_button %>
+<br>
+
+<!-- LANGUAGES -->
+<p>Develoopers Wanted: <%= @project.languages %></p>
+
+<!-- TEAM MEMBERS -->
+<p>The Team</p>
+<% @project.followers.each do |p| %>
+	<%= image_tag(p.profile.image) %>
+	<%= p.nickname %>
 <% end %>
 
-<div class="btn-group">
-		<%= link_to like_project_path(@project), method: :put, class: "btn btn-default btn-sm" do %>
-			<span class="glyphicon glyphicon-chevron-up"></span>
-			Upvote
-			<%= @project.get_upvotes.size %>
-		<% end %>
-		<%= link_to dislike_project_path(@project), method: :put, class: "btn btn-default btn-sm" do %>
-			<span class="glyphicon glyphicon-chevron-down"></span>
-			Downvote
-			<%= @project.get_downvotes.size %>
-		<% end %>
-	</div>
-
-<br><%= twitter_button %>
-
+<!-- COMMENTS -->
 <%= render 'comments/form' %>
 
 <div id="comment_list">
@@ -46,7 +70,6 @@
 		<% end %>
 	</div>
 
-
-
+<!-- DELETE/EDIT -->
 <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %> | 
 <%= link_to 'Edit', edit_project_path(@project) %>
