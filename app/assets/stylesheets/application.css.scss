@@ -23,7 +23,17 @@ $green: #5aa02c;
 $blue: #329BC2;
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $play;
+  /*font-family: $play;*/
+}
+
+.navbar-form {
+  padding-top: 9px;
+  padding-bottom: 0px;
+}
+
+.navbar-form input {
+  font-size: 1.3em;
+  border: none;
 }
 
 .main-container {
@@ -48,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-nav li a:visited,
 .navbar-nav li a {
   color: black;
-  font-family: $play;
+  /*font-family: $play;*/
   font-size: 1.3em;
   padding-top: 20px;
   padding-bottom: 0px;
