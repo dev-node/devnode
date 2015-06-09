@@ -4,7 +4,7 @@
 
 <!-- VIDEO: shows embedded vimeo video only if the video exists -->
 <% unless @project.video == "" %>  
-	<iframe src=<%= @project.video %> width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<iframe src=<%= @project.video_embed %> width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <% end %>
 
 <!-- USEFUL LINKS: facebook, twitter, trello, repo -->
