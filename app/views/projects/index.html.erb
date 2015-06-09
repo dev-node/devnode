@@ -1,10 +1,13 @@
-
-
-<h1>All Projects</h1>
+<h1>Get inspired and explore... </h1>
 
 <div id="tag_cloud">
-	<% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+	<% tag_cloud Project.tag_counts, "btn tag_button" do |tag, css_class| %>
 		<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+		
+	<% end %>
+	<% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+		<%= link_to tag.name, tag_path(tag.name), class: "btn tag_button" %>
+		<%= link_to tag.name, tag_path(tag.name), class: "btn tag_button" %>
 	<% end %>
 </div>
 
