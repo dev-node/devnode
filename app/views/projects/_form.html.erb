@@ -30,9 +30,12 @@
   <h4>What kind of developers are you looking for?</h4>
   <%= f.text_area :languages, placeholder: "Ex: Ruby on Rails, HTML/CSS, Javascript" %>
 
-  <h3>Step 6: Link to your repo</h3>
-  <h4>Get developers involved! Provide a Github repo link.</h4>
-  <%= f.text_field :repo, placeholder: "Enter Github Repo Link" %>
+  <h3>Step 6: Link to your websites</h3>
+  <h4>Get developers involved! Provide a link to your Github repo and other company websites.</h4>
+  <%= f.text_field :repo, placeholder: "Enter Github Repo Link" %><br>
+  <%= f.text_field :trello, placeholder: "Enter Trello Link" %><br>
+  <%= f.text_field :facebook, placeholder: "Enter Facebook Link" %><br>
+  <%= f.text_field :twitter, placeholder: "Enter Twitter Link" %><br>
 
   <h3>Step 7: Tag your project</h3>
   <h4>Make it easy for developers to search for your project.</h4>
