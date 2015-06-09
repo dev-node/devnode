@@ -11,31 +11,36 @@
     </div>
   <% end %>
 
-  <h3><%= f.label :name %></h3>
-  <%= f.text_field :name %>
+  <h3>Step 1: Name your application</h3>
+  <%= f.text_field :name, placeholder: 'Enter Cool App Name Here' %>
 
-  <h3><%= f.label :description %></h3>
-  <%= f.text_area :description, placeholder: "255 characters max" %>
+  <h3>Step 2: <span>Empower</span> developers</h3>
+  <h4>Enter a mission statement or a simple goal for the application</h4>
+  <%= f.text_area :description, placeholder: "255 Characters Max" %>
 
-  <h3><%= f.label :fulldescription %></h3>
-  <%= f.text_area :fulldescription, placeholder: "Full description of project" %>
+  <h3>Step 3: Give a <span>persuasive</span> pitch and attract a team</h3>
+  <h4>Upload a <a href="https://www.vimeo.com">Vimeo</a> video to get your project featured.</h4>
+  <%= f.text_field :video, placeholder: "Enter Vimeo Link" %>
 
-  <h3><%= f.label :languages %></h3>
-  <%= f.text_area :languages, placeholder: "Languages project will use" %>
+  <h3>Step 4: Provide project details</h3>
+  <h4>Tell developers more about the project and how to get involved.</h4>
+  <%= f.text_area :fulldescription, placeholder: "Ex: About this project, key features, FAQ sections" %>
 
-	<h3><%= f.label :video %></h3>
-  <%= f.text_field :video, placeholder: "Add Vimeo Link" %>
+  <h3>Step 5: List language requirements</h3>
+  <h4>What kind of developers are you looking for?</h4>
+  <%= f.text_area :languages, placeholder: "Ex: Ruby on Rails, HTML/CSS, Javascript" %>
 
-  <h3><%= f.label :repo %></h3>
-  <%= f.text_field :repo, placeholder: "Add Project Repo Link" %>
+  <h3>Step 6: Link to your repo</h3>
+  <h4>Get developers involved! Provide a Github repo link.</h4>
+  <%= f.text_field :repo, placeholder: "Enter Github Repo Link" %>
 
-  <h3><%= f.label :tag_list, "Tags (separated by commas)" %></h3>
-  <%= f.text_field :tag_list %>
-
-
+  <h3>Step 7: Tag your project</h3>
+  <h4>Make it easy for developers to search for your project.</h4>
+  <%= f.text_field :tag_list, placeholder: "Separate Tags with Commas" %>
   
   <br>
-  <%= f.submit %>
+
+  <h1><%= f.submit "Create My Project!", class: "btn btn-large btn-primary" %></h1>
 
 <% end %>
   
