@@ -1,11 +1,13 @@
-<h1>Projects Search</h1>
- 
-<ul>
-  <% @projects.each do |project| %>
-    <li>
-      <h3>
-        <%= link_to project.name, controller: "projects", action: "show", id: project._id%>
-      </h3>
-    </li>
-  <% end %>
-</ul>
+<div class="container main-container">
+  <h1>Projects Search</h1>
+   
+  <ul>
+    <% @projects.each do |project| %>
+      <li>
+        <h3>
+          <%= link_to project.name, controller: "projects", action: "show", id: project._id%>
+        </h3>
+      </li>
+    <% end %>
+  </ul>
+</div>

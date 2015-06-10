@@ -48,7 +48,7 @@
     </nav>
 
 	 
-	<div class="container main-container">
+	
 	  <% flash.each do |key, value| %>
 	    <div class="alert alert-<%= key %>">
 	      <%= value %>
@@ -56,7 +56,7 @@
 	  <% end %>
 	 
 	  <%= yield %>
-	</div>
+
 
 </body>
 </html>

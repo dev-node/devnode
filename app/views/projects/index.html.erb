@@ -1,38 +1,40 @@
-<h1 class="header">Get inspired and explore... </h1>
+<div class="container main-container">
+	<h1>Get inspired and explore... </h1>
 
-<div id="tag_cloud">
-	<% tag_cloud Project.tag_counts, "btn" do |tag, css_class| %>
-		<%= link_to tag.name, tag_path(tag.name), class: "btn tag_button" %>
-		<!-- <div class="tag_hover btn tag_button"><%= tag.taggings_count %> <%= link_to tag.name, tag_path(tag.name) %> Ideas</div> -->
-	<% end %>
-</div>
+	<div id="tag_cloud">
+		<% tag_cloud Project.tag_counts, "btn" do |tag, css_class| %>
+			<%= link_to tag.name, tag_path(tag.name), class: "btn tag_button" %>
+			<!-- <div class="tag_hover btn tag_button"><%= tag.taggings_count %> <%= link_to tag.name, tag_path(tag.name) %> Ideas</div> -->
+		<% end %>
+	</div>
 
-<% n = 0 %>
-<% @projects.each do |project| %>
-  <div class="container project-box">
-		<div class="rank"><h3><%= n += 1 %></h3></div>
-		
-		<div class="vote-group">
-			<%= link_to like_project_path(project), method: :put, class: "vote-button" do %>
-				<span class="glyphicon glyphicon-chevron-up text"></span><br>
-			<% end %>
-			<div class="vote-button"><%= project.get_upvotes.size - project.get_downvotes.size %></div>
-			<%= link_to dislike_project_path(project), method: :put, class: "vote-button" do %>
-				<span class="glyphicon glyphicon-chevron-down"></span><br>
-			<% end %>
-		</div>
-		
-		<div class="project-main">
-			<h2><%= link_to (project.name), project %></h2>
-			<h5>by <%= project.user.nickname %></h5>
-			<p><%= project.description %></p>
-			<div class="project-bottom">
-				<!-- prints tags only if tags exist -->
-				<% if project.tag_list.size > 0 %>
-				  <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
+	<% n = 0 %>
+	<% @projects.each do |project| %>
+	  <div class="container project-box">
+			<div class="rank"><h3><%= n += 1 %></h3></div>
+			
+			<div class="vote-group">
+				<%= link_to like_project_path(project), method: :put, class: "vote-button" do %>
+					<span class="glyphicon glyphicon-chevron-up text"></span><br>
 				<% end %>
-				<p><i class="fa fa-plus-circle"></i> <%= project.followers.size %> Followers</p>
+				<div class="vote-button"><%= project.get_upvotes.size - project.get_downvotes.size %></div>
+				<%= link_to dislike_project_path(project), method: :put, class: "vote-button" do %>
+					<span class="glyphicon glyphicon-chevron-down"></span><br>
+				<% end %>
+			</div>
+			
+			<div class="project-main">
+				<h2><%= link_to (project.name), project %></h2>
+				<h5>by <%= project.user.nickname %></h5>
+				<p><%= project.description %></p>
+				<div class="project-bottom">
+					<!-- prints tags only if tags exist -->
+					<% if project.tag_list.size > 0 %>
+					  <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
+					<% end %>
+					<p><i class="fa fa-plus-circle"></i> <%= project.followers.size %> Followers</p>
+				</div>
 			</div>
 		</div>
-	</div>
-<% end %>
+	<% end %>
+</div>
