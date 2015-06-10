@@ -1,5 +1,4 @@
 require 'elasticsearch/model'
-require 'open-uri'
 
 class Project < ActiveRecord::Base
   belongs_to :user
