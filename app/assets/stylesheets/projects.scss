@@ -6,6 +6,7 @@ $font: 'Droid Sans', sans-serif;
 $green: #5aa02c;
 $blue: #4891DC;
 $dark_green: #0E260B;
+$white_opaque: rgba(255, 255, 255, 0.7);
 
 #tag_cloud {
 	margin-top: 3%;
@@ -13,17 +14,17 @@ $dark_green: #0E260B;
 }
 
 .tag_button {
-	color: $dark_green;
-	background-color: lighten($green, 5%);
-	box-shadow: 2px 2px 2px $dark_green;
-	border: 2px $dark_green solid;
+	color: black;
+	background-color: $white_opaque;
+	box-shadow: 2px 2px 2px black;
+	border: 2px solid $white_opaque;
 	width: 150px;
 	line-height: 1.6em;
 	font-size: 1.4em;
 	margin-right: 1%;
 	transition: all, .4s, ease-in-out;
 	&:hover{
-		background-color: lighten($dark_green, 10%);
+		background-color: $green;
 		color: white;
 	}
 }
@@ -68,6 +69,10 @@ $dark_green: #0E260B;
 	p {
 		margin: 0;
 	}
+}
+
+.project-header {
+	margin-top: 60px;
 }
 
 .project-bottom {

@@ -1,12 +1,18 @@
-<div class="container main-container page-container">
-	<h1>Get inspired and explore... </h1>
+<div class="page-header" style="background-image:url('/images/devnode_slider_2.jpg');">
+  <div class="page-header-text">
+    <h1>Get inspired and explore...</h1>
+    <h3>Search for projects by popular tags.</h3>
+    	<div id="tag_cloud">
+				<% tag_cloud Project.tag_counts, "btn" do |tag, css_class| %>
+					<%= link_to tag.name, tag_path(tag.name), class: "btn tag_button" %>
+					<!-- <div class="tag_hover btn tag_button"><%= tag.taggings_count %> <%= link_to tag.name, tag_path(tag.name) %> Ideas</div> -->
+				<% end %>
+			</div>
+  </div>
+</div>
 
-	<div id="tag_cloud">
-		<% tag_cloud Project.tag_counts, "btn" do |tag, css_class| %>
-			<%= link_to tag.name, tag_path(tag.name), class: "btn tag_button" %>
-			<!-- <div class="tag_hover btn tag_button"><%= tag.taggings_count %> <%= link_to tag.name, tag_path(tag.name) %> Ideas</div> -->
-		<% end %>
-	</div>
+<div class="container main-container page-container">
+
 
 	<% n = 0 %>
 	<% @projects.each do |project| %>

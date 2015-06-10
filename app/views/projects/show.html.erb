@@ -1,6 +1,9 @@
+
 <div class="container main-container page-container">
-	<h1><%= @project.name %></h1>
-	<h4>by <%= link_to @project.user.nickname, user_path(@project.user.id) %></h4>
+	<div class="project-header">
+		<h1><%= @project.name %></h1>
+		<h4>by <%= link_to @project.user.nickname, user_path(@project.user.id) %></h4>
+	</div>	
 	<h3><%= @project.description %></h3>
 
 	<!-- VIDEO: shows embedded vimeo video only if the video exists -->
