@@ -6,8 +6,6 @@ $font: 'Droid Sans', sans-serif;
 $green: #5aa02c;
 $blue: #4891DC;
 $dark_green: #0E260B;
-$header: #027011;
-$medium: #C3EDBC;
 
 #tag_cloud {
 	margin-top: 3%;
@@ -38,7 +36,7 @@ $medium: #C3EDBC;
   margin: 10px;
   width: 100%;
   float: left;
-  height: 200px;
+  min-height: 200px;
 }
 
 .rank {
