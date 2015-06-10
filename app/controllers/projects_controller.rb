@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 		elsif params[:tag]
 			@projects = Project.tagged_with(params[:tag])
 		else
-			@projects = Project.all
+			@projects = Project.paginate(:page => params[:page])
 		end
 		
 	end
