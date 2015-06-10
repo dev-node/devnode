@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
 		elsif params[:tag]
 			@projects = Project.tagged_with(params[:tag])
 		else
-			@projects = Project.paginate(:page => params[:page])
+			@projects = Project.order(:cached_votes_total => :desc).paginate(:page => params[:page])
 		end
 		
 	end
