@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	    user.email = auth_hash['info']['email']
 	    user.save!
 	    user
-	  end
+		end
 	end
 	
 end
