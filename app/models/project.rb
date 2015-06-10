@@ -10,6 +10,8 @@ class Project < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  self.per_page = 10
+
   # after_save do
   #   video_hash = JSON.parse(open("https://vimeo.com/api/oembed.json?url=#{self.video}").read)
   #   self.video_thumb = video_hash['thumbnail_url']
