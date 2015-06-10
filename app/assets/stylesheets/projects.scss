@@ -40,11 +40,6 @@ $white_opaque: rgba(255, 255, 255, 0.7);
   min-height: 200px;
 }
 
-.rank {
-	float: left;
-	padding: 2%;
-	margin-top: 46px;
-}
 .vote-group {
 	display: block;
 	max-width: 50px;
@@ -87,6 +82,8 @@ $white_opaque: rgba(255, 255, 255, 0.7);
 		}
 	}
 }
+
+// PAGE CSS
 
 .flickr_pagination {
   text-align: center;

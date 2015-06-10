@@ -13,12 +13,8 @@
 
 <div class="container main-container page-container">
 
-
-	<% n = 0 %>
 	<% @projects.each do |project| %>
 	  <div class="container project-box">
-			<div class="rank"><h3><%= n += 1 %></h3></div>
-			
 			<div class="vote-group">
 				<%= link_to like_project_path(project), method: :put, class: "vote-button" do %>
 					<span class="glyphicon glyphicon-chevron-up text"></span><br>
