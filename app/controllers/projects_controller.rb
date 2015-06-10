@@ -76,7 +76,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     current_user.follow(@project)
     redirect_to :back
-  end
+	end
 
   def unfollow
     @project = Project.find(params[:id])

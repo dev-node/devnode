@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-	def index
+  def index
     if params[:q].nil?
       @projects = []
     else
