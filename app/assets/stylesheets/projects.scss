@@ -152,18 +152,18 @@ input[type=submit] {
 .flickr_pagination .current {
   font-style: normal;
   font-weight: bold;
-  color: #ff0084; 
+  color: $green; 
 }
 
 .flickr_pagination a {
   border: 1px solid #dddddd;
-  color: #0063dc;
+  color: $dark_green;
   text-decoration: none; 
 }
   
 .flickr_pagination a:hover, .flickr_pagination a:focus {
-  border-color: #003366;
-  background: #0063dc;
+  border-color: darken($green, 10%);
+  background: $green;
   color: white; }
 
 // .flickr_pagination .page_info {
