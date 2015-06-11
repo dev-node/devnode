@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
       @projects = Project.search params[:q]
       redirect_to :controller => 'search', :q => params[:q]
 		elsif params[:tag]
-			@projects = Project.tagged_with(params[:tag])
+			@projects = Project.tagged_with(params[:tag]).order(:cached_votes_total => :desc).paginate(:page => params[:page])
 		else
 			@projects = Project.order(:cached_votes_total => :desc).paginate(:page => params[:page])
 		end
