@@ -1,80 +1,74 @@
 
 <div class="container main-container page-container">
 	<div class="project-header">
-		<h1><%= @project.name %></h1>
-		<h4>by <%= link_to @project.user.nickname, user_path(@project.user.id) %></h4>
-	</div>	
-	<h3><%= @project.description %></h3>
-
-	<!-- VIDEO: shows embedded vimeo video only if the video exists -->
-	<% unless @project.video == "" %>  
-		<iframe src=<%= @project.video_embed %> width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	<% end %>
-
-	<!-- USEFUL LINKS: facebook, twitter, trello, repo -->
-	<p>Useful Links</p>
-	<p><i class="fa fa-github"></i><%= link_to 'Github Repo', "http://#{@project.repo}" unless @project.repo.nil? %></p>
-	<p><i class="fa fa-trello"></i><%= link_to 'Trello', "http://#{@project.trello}" unless @project.trello.nil? %></p>
-	<p><i class="fa fa-facebook"></i><%= link_to 'Facebook', "http://#{@project.facebook}" unless @project.facebook.nil? %></p>
-	<p><i class="fa fa-twitter"></i><%= link_to 'Twitter', "http://#{@project.twitter}" unless @project.twitter.nil? %></p>
-
-	<!-- TAGS: prints tags only if tags exist -->
-	<% if @project.tag_list.size > 0 %>
-	  <p>Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
-	<% end %>
-
-	<!-- FOLLOW -->
-	<% if current_user && !current_user.following?(@project) %>
-		<%= link_to "Join the Team!", follow_project_path(@project), class: "btn btn-large btn-primary" %>
-	<% elsif current_user && current_user.following?(@project) %>
-		<%= link_to "Unfollow", unfollow_project_path(@project), class: "btn btn-large btn-primary"%>
-	<% end %>
-	<br>
-
-	<!-- LIKE/DISLIKE -->
-	<div class="btn-group">
-		<%= link_to like_project_path(@project), method: :put, class: "btn btn-default btn-sm" do %>
-			<i class="fa fa-thumbs-o-up"></i>	
-		<% end %>
-
-		<div class="vote_num">
-			<%= @project.get_upvotes.size - @project.get_downvotes.size %>
+		<!-- VIDEO: shows embedded vimeo video only if the video exists -->
+		<div style="width: 40%;">
+			<div class="video-div">
+				<% unless @project.video == "" %>  
+					<iframe src=<%= @project.video_embed %> frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video"></iframe>
+				<% end %>
+			</div>
 		</div>
-		<%= link_to dislike_project_path(@project), method: :put, class: "btn btn-default btn-sm" do %>
-			<i class="fa fa-thumbs-o-down"></i>
-		<% end %>
+		<div style="float:left; margin-left: 80px;">	
+			<h1><%= @project.name %></h1>
+			<h4>by <%= link_to @project.user.nickname, user_path(@project.user.id) %></h4>
+			<!-- TAGS: prints tags only if tags exist -->
+			<% if @project.tag_list.size > 0 %>
+			  <p>Tags: <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
+			<% end %>
+			<!-- USEFUL LINKS: facebook, twitter, trello, repo -->
+			
+			<%= link_to '<p><i class="fa fa-github"></i> Github Repo</p>'.html_safe, "http://#{@project.repo}" unless @project.repo.nil? %>
+			<%= link_to '<p><i class="fa fa-trello"></i> Trello</p>'.html_safe, "http://#{@project.trello}" unless @project.trello.nil? %></p>
+			<%= link_to '<p><i class="fa fa-facebook"></i> Facebook</p>'.html_safe, "http://#{@project.facebook}" unless @project.facebook.nil? %></p>
+			<%= link_to '<p><i class="fa fa-twitter"></i> Twitter</p>'.html_safe, "http://#{@project.twitter}" unless @project.twitter.nil? %>
+				<!-- FOLLOW -->
+					<!-- LIKE/DISLIKE -->
+			<p style="font-size: 1.3em;">
+			<%= link_to like_project_path(@project), method: :put do %>
+				<i class="fa fa-thumbs-o-up"></i>	
+			<% end %>
+			<%= link_to dislike_project_path(@project), method: :put do %>
+				<span style="margin-right: 5px;"></span><i class="fa fa-thumbs-o-down"></i>
+			<% end %>
+				<span style="margin-right: 5px;"></span>Likes: <%= @project.get_upvotes.size - @project.get_downvotes.size %>
+			</p>
+			<% if current_user && !current_user.following?(@project) %>
+				<%= link_to "Join the Team!", follow_project_path(@project), class: "btn btn-large project-button" %>
+			<% elsif current_user && current_user.following?(@project) %>
+				<%= link_to "Unfollow", unfollow_project_path(@project), class: "btn btn-large project-button"%>
+			<% end %>
+			
+
+		</div>
+	</div>	
+	<div style="clear:both; padding-top: 10px;">
+		<h3>The Mission</h3>
+		<p class="project-description"><%= @project.description %></p>
+		<h3>Summary</h3>
+		<p><%= @project.fulldescription %></p>
 	</div>
 	<br>
-
-	<!-- FULL DESCRIPTION -->
-	<%= @project.fulldescription %>
-	<br>
-
-	<!-- TWEET -->
-	<%= twitter_button %>
-	<br>
-
 	<!-- LANGUAGES -->
-	<p>Develoopers Wanted: <%= @project.languages %></p>
+	<h4>Developers Wanted: <%= @project.languages %></h4>
 
 	<!-- TEAM MEMBERS -->
-	<p>The Team</p>
+	<h4>The Team</h4>
+	<%= image_tag(@project.user.profile.image, class: "user-avatar-sm") %>
 	<% @project.followers.each do |p| %>
 		<%= image_tag(p.profile.image) %>
-		<%= p.nickname %>
 	<% end %>
 
 	<!-- COMMENTS -->
+	<div class="comment-section" style="clear:both;">
 	<%= render 'comments/form' %>
 
 	<div id="comment_list">
 			<% @project.comments.order(created_at: :desc).each do |comment| %>
+					<hr>
 					<p><%= comment.comment %></p>
-					<p>Posted by <%= comment.author %> at <%= time_ago_in_words(comment.created_at)%> ago</p>
+					<p>Posted by <%= comment.author %> <%= time_ago_in_words(comment.created_at)%> ago</p>
 			<% end %>
 		</div>
-
-	<!-- DELETE/EDIT -->
-	<%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %> | 
-	<%= link_to 'Edit', edit_project_path(@project) %>
+	</div>
 </div>

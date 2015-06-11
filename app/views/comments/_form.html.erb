@@ -10,13 +10,13 @@
       </ul>
     </div>
   <% end %>
-
-  <%= f.label :comment %><br>
+<div style="padding-top: 20px;">
   <%= f.text_area :comment, placeholder: "Add a new comment." %>
   
   <%= f.hidden_field :project_id, value: @project.id %>
 
-  <div class="actions">
+  <div class="actions btn">
     <%= f.submit %>
   </div>
 <% end %>
+</div>
