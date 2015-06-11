@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609212048) do
+ActiveRecord::Schema.define(version: 20150610232227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,16 +61,30 @@ ActiveRecord::Schema.define(version: 20150609212048) do
     t.string   "description"
     t.string   "video"
     t.string   "repo"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.text     "fulldescription"
     t.text     "languages"
     t.string   "facebook"
     t.string   "twitter"
     t.string   "trello"
     t.string   "video_thumb"
+    t.integer  "cached_votes_total",      default: 0
+    t.integer  "cached_votes_score",      default: 0
+    t.integer  "cached_votes_up",         default: 0
+    t.integer  "cached_votes_down",       default: 0
+    t.integer  "cached_weighted_score",   default: 0
+    t.integer  "cached_weighted_total",   default: 0
+    t.float    "cached_weighted_average", default: 0.0
   end
 
+  add_index "projects", ["cached_votes_down"], name: "index_projects_on_cached_votes_down", using: :btree
+  add_index "projects", ["cached_votes_score"], name: "index_projects_on_cached_votes_score", using: :btree
+  add_index "projects", ["cached_votes_total"], name: "index_projects_on_cached_votes_total", using: :btree
+  add_index "projects", ["cached_votes_up"], name: "index_projects_on_cached_votes_up", using: :btree
+  add_index "projects", ["cached_weighted_average"], name: "index_projects_on_cached_weighted_average", using: :btree
+  add_index "projects", ["cached_weighted_score"], name: "index_projects_on_cached_weighted_score", using: :btree
+  add_index "projects", ["cached_weighted_total"], name: "index_projects_on_cached_weighted_total", using: :btree
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
