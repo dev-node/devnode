@@ -13,8 +13,11 @@
  *= require_tree .
  *= require_self
  */
-
+$font: 'Droid Sans', sans-serif;
+$green: #5aa02c;
+$blue: #329BC2; 
 $grid-float-breakpoint: 1000px;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";
@@ -22,41 +25,10 @@ $grid-float-breakpoint: 1000px;
 @import "full-slider";
 @import "users";
 
-$font: 'Droid Sans', sans-serif;
-$green: #5aa02c;
-$blue: #329BC2;
+// Paragraph and header styles
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font;
-}
-
-hr {  
-  border-bottom: 1px dotted $green;
-}
-
-p {
-  font-size: 1.2em;
-}
-
-a {
-  color: $green;
-  &:hover {
-    transition: all .4s ease-in-out;
-    color: darken($green, 20%);
-    text-decoration: none;
-  }
-}
-
-#devnode-nav {
-  background-color: white;
-  background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0.7));
-  border: none;
-}
-
-.page-header-text {
-  margin-top: 200px;
-  text-align: center;
-  width: 100%;
 }
 
 .page-header-text h1 {
@@ -70,10 +42,45 @@ a {
   text-shadow: 2px 2px 2px black;
 }
 
-.feature-img {
-  width: 300px;
-  margin-bottom: 5px;
-  border-radius: 7px 7px 0px 0px;
+.feature-box h2, .feature-box h5 {
+  margin: 5px;
+  font-weight: bold;
+}
+
+.feature-box p {
+  margin: 5px;
+  font-size: 1.2em;
+}
+
+//Link styles
+
+a {
+  color: $green;
+  &:hover {
+    transition: all .4s ease-in-out;
+    color: darken($green, 20%);
+    text-decoration: none;
+  }
+}
+
+.navbar-nav li a:visited,
+.navbar-nav li a {
+  color: black;
+  font-family: $font;
+  font-size: 1.3em;
+  padding-top: 22px;
+  padding-bottom: 0px;
+  &:hover {
+    background-color: transparent;
+    transition: all .4s ease-in-out;
+    color: $green !important;
+  }
+}
+
+// Page element styles
+
+hr {  
+  border-bottom: 1px dotted $green;
 }
 
 .page-header {
@@ -81,6 +88,53 @@ a {
   min-height: 400px;
   overflow: auto;
 }
+
+.page-header-text {
+  margin-top: 200px;
+  text-align: center;
+  width: 100%;
+}
+
+.page-container {
+  margin-top: 50px;
+}
+
+//Navbar styles
+
+#devnode-nav {
+  background-color: white;
+  background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0.7));
+  border: none;
+}
+
+.navbar-form {
+  padding-top: 9px;
+  padding-bottom: 0px;
+}
+
+.navbar-form input {
+  font-size: 1.3em;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid grey;
+}
+
+.navbar {
+  border-radius: 0px;
+  padding-bottom: 0px;
+  background-color: white;
+  vertical-align: bottom;
+}
+
+#logo-image {
+  height: 40px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+  margin-right: 25px;
+  margin-left: 10px;
+}
+
+//Featured page elements
 
 .feature-box {
   background-color: #ececec;
@@ -98,58 +152,8 @@ a {
   border-radius: 0px 0px 7px 7px;
 }
 
-.feature-box h2, .feature-box h5 {
-  margin: 5px;
-  font-weight: bold;
-}
-
-.feature-box p {
-  margin: 5px;
-  font-size: 1.2em;
-}
-
-.navbar-form {
-  padding-top: 9px;
-  padding-bottom: 0px;
-}
-
-.navbar-form input {
-  font-size: 1.3em;
-  border: none;
-  background: transparent;
-  border-bottom: 2px solid grey;
-}
-
-.page-container {
-  margin-top: 50px;
-}
-
-#logo-image {
-  height: 40px;
-  margin-bottom: 0px;
-  margin-top: 5px;
-  margin-right: 25px;
-  margin-left: 10px;
-}
-
-.navbar {
-  border-radius: 0px;
-  padding-bottom: 0px;
-  background-color: white;
-  vertical-align: bottom;
-}
-
-.navbar-nav li a:visited,
-.navbar-nav li a {
-  color: black;
-  font-family: $font;
-  font-size: 1.3em;
-  padding-top: 22px;
-  padding-bottom: 0px;
-}
-
-.navbar-nav li a:hover {
-  background-color: transparent;
-  transition: all .4s ease-in-out;
-  color: $green !important;
+.feature-img {
+  width: 300px;
+  margin-bottom: 5px;
+  border-radius: 7px 7px 0px 0px;
 }
