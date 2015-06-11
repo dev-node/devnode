@@ -1,3 +1,31 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+img {
+	max-height: 230px;
+	max-width: 230px;
+	border-radius: 5px;
+}
+
+.my_panel {
+	margin-top: 5%;
+}
+
+.profile-box{
+	border: 2px solid black;
+	padding: 2%;
+	max-width: 30%;
+	border-radius: 5px;
+	position: fixed;
+	&:a {
+		font-size: 1.3em;
+	}
+}
+
+.bio{
+	float: left;
+	max-width: 60%;
+	margin-left: 30%;
+}
