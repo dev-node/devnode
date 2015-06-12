@@ -12,6 +12,10 @@ class Project < ActiveRecord::Base
 
   self.per_page = 10
 
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
+                             :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   # after_save do
   #   video_hash = JSON.parse(open("https://vimeo.com/api/oembed.json?url=#{self.video}").read)
   #   self.video_thumb = video_hash['thumbnail_url']
