@@ -17,9 +17,10 @@
 //= require_tree .
 
 var main = function() {
-  $(".flash-button").on("click", function(){
-    $("#flash-message").remove();
-});
+  // $(".flash-button").on("click", function(){
+  //   $("#flash-message").remove();
+  // });
+  $('#flash-message').fadeOut(2500);
 };
 
 $(document).ready(main);
