@@ -11,39 +11,39 @@
     </div>
   <% end %>
 
-  <h3>1. Name your Project</h3>
+  <h3>Project Name</h3>
   <%= f.text_field :name, placeholder: 'Enter Cool App Name Here' %>
 
-  <h3>2. <span>Empower</span> developers</h3>
+  <h3>Mission Statement</h3>
   <h4>Enter a mission statement or a simple goal for the application</h4>
   <%= f.text_area :description, placeholder: "255 Characters Max" %>
 
-  <h3>3. Give a <span>persuasive</span> pitch and attract a team</h3>
+  <h3>Pitch Video</h3>
   <h4>Upload a <%= link_to "Vimeo", "https://www.vimeo.com", :target => '_blank' %> video to get your project featured.</h4>
   <%= f.text_field :video, placeholder: "Enter Vimeo Link" %>
 
-  <h3>4. Provide project details</h3>
+  <h3>Project Details</h3>
   <h4>Tell developers more about the project and how to get involved.</h4>
   <%= f.text_area :fulldescription, placeholder: "Ex: About this project, key features, FAQ sections" %>
 
-  <h3>5. List language requirements</h3>
+  <h3>Language Requirements</h3>
   <h4>What kind of developers are you looking for?</h4>
   <%= f.text_area :languages, placeholder: "Ex: Ruby on Rails, HTML/CSS, Javascript" %>
 
-  <h3>6. Link to your websites</h3>
+  <h3>Useful Websites</h3>
   <h4>Get developers involved! Provide a link to your Github repo and other company websites.</h4>
   <i class="fa fa-github" style="color: $green; font-size: 16px;"></i> <%= f.text_field :repo, placeholder: "Enter Github Repo Link" %><br><br>
-  <i class="fa fa-github" style="color: $green; font-size: 16px;"></i> <%= f.text_field :trello, placeholder: "Enter Trello Link" %><br><br>
-  <i class="fa fa-github" style="color: $green; font-size: 16px;"></i> <%= f.text_field :facebook, placeholder: "Enter Facebook Link" %><br><br>
-  <i class="fa fa-github" style="color: $green; font-size: 16px;"></i> <%= f.text_field :twitter, placeholder: "Enter Twitter Link" %><br><br>
+  <i class="fa fa-trello" style="color: $green; font-size: 16px;"></i> <%= f.text_field :trello, placeholder: "Enter Trello Link" %><br><br>
+  <i class="fa fa-facebook" style="color: $green; font-size: 16px;"></i> <%= f.text_field :facebook, placeholder: "Enter Facebook Link" %><br><br>
+  <i class="fa fa-twitter" style="color: $green; font-size: 16px;"></i> <%= f.text_field :twitter, placeholder: "Enter Twitter Link" %><br><br>
 
-  <h3>7. Tag your project</h3>
+  <h3>Project Tags</h3>
   <h4>Make it easy for developers to search for your project.</h4>
   <%= f.text_field :tag_list, placeholder: "Separate Tags with Commas" %>
   
   <br>
 
-  <h1><%= f.submit "Create My Project!", class: "btn btn-large btn-primary" %></h1>
+  <h1><%= f.submit "Update Project", class: "btn btn-large btn-primary" %></h1>
 
 <% end %>
   

@@ -17,20 +17,20 @@
   <h3><%= f.label :bio %></h3>
   <%= f.text_area :bio %>
 
-  <h3><%= f.label :website %></h3>
+  <h3><i class="fa fa-sitemap" style="color: $green;"></i> <%= f.label :website %></h3>
   <%= f.text_field :website %>
   
-  <h3><%= f.label :facebook %></h3>
+  <h3><i class="fa fa-facebook" style="color: $green;"></i> <%= f.label :facebook %></h3>
   <%= f.text_field :facebook %>
 
-  <h3><%= f.label :twitter %></h3>
+  <h3><i class="fa fa-twitter" style="color: $green;"></i> <%= f.label :twitter %></h3>
   <%= f.text_field :twitter %>
 
-  <h3><%= f.label :linkedin %></h3>
+  <h3><i class="fa fa-linkedin" style="color: $green;"></i> <%= f.label :linkedin %></h3>
   <%= f.text_field :linkedin %>  
-
   <br>
-  <%= f.submit %>
+  <br>
+  <%= f.submit "Update Profile", class: "btn btn-large btn-primary" %>
 
 <% end %>
   

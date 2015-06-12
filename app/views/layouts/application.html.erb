@@ -35,7 +35,8 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-              <li><%= link_to 'MY PROFILE', user_path(current_user.id) %>
+              <li><%= link_to 'NEW PROJECT', new_project_path %></li>
+              <li><%= link_to 'MY PROFILE', user_path(current_user.id) %></li>
 		          <li><%= link_to 'LOG OUT', logout_path, method: :delete %></li>
 		        <% else %>
 		        <li><%= link_to '<i class="fa fa-github" style="font-size: 1.1em;"></i> GITHUB LOGIN'.html_safe, '/auth/github' %></li>
