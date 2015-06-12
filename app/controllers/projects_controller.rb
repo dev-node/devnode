@@ -1,17 +1,16 @@
 class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :upvote, :follow]
 	before_action :check_current_user, only: [:edit, :update, :destroy]
-
+	before_action :check_logged_in, only: [:upvote, :downvote]
 	def index
 		if !params[:q].nil?
       @projects = Project.search params[:q]
       redirect_to :controller => 'search', :q => params[:q]
 		elsif params[:tag]
-			@projects = Project.tagged_with(params[:tag]).order(:cached_votes_total => :desc).paginate(:page => params[:page])
+			@projects = Project.order(:cached_votes_score => :desc).tagged_with(params[:tag]).paginate(:page => params[:page])
 		else
-			@projects = Project.order(:cached_votes_total => :desc).paginate(:page => params[:page])
+			@projects = Project.order(:cached_votes_score => :desc).paginate(:page => params[:page])
 		end
-		
 	end
 
 	def featured
@@ -89,6 +88,13 @@ class ProjectsController < ApplicationController
 			unless current_user && @project.user_id == current_user.id
 				flash[:warning] = "You have to be logged in as that user to do that!"
 				redirect_to root_path
+			end
+		end
+
+		def check_logged_in
+			unless current_user
+				flash[:warning] = "You have to be logged in as that user to do that!"
+				redirect_to :back
 			end
 		end
 
