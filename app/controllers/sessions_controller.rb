@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   	if @user.profile.bio == nil	
   		redirect_to edit_profile_path(@user.profile)
   	else
-  		redirect_to root_path
+  		redirect_to :back
 		end
 	end
 
