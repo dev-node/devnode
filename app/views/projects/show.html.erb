@@ -22,8 +22,8 @@
 			<%= link_to '<p><i class="fa fa-trello"></i> Trello</p>'.html_safe, "http://#{@project.trello}" unless @project.trello.nil? %></p>
 			<%= link_to '<p><i class="fa fa-facebook"></i> Facebook</p>'.html_safe, "http://#{@project.facebook}" unless @project.facebook.nil? %></p>
 			<%= link_to '<p><i class="fa fa-twitter"></i> Twitter</p>'.html_safe, "http://#{@project.twitter}" unless @project.twitter.nil? %>
-				<!-- FOLLOW -->
-					<!-- LIKE/DISLIKE -->
+				
+			<!-- LIKE/DISLIKE -->
 			<p style="font-size: 1.3em;">
 			<%= link_to like_project_path(@project), method: :put do %>
 				<i class="fa fa-thumbs-o-up"></i>	
@@ -33,9 +33,11 @@
 			<% end %>
 				<span style="margin-right: 5px;"></span>Likes: <%= @project.get_upvotes.size - @project.get_downvotes.size %>
 			</p>
-			<% if current_user && !current_user.following?(@project) %>
+
+			<!-- FOLLOW -->
+			<% if current_user.nil? || !current_user.following?(@project) %>
 				<%= link_to "Join the Team!", follow_project_path(@project), class: "btn btn-large project-button" %>
-			<% elsif current_user && current_user.following?(@project) %>
+			<% elsif current_user.following?(@project) %>
 				<%= link_to "Unfollow", unfollow_project_path(@project), class: "btn btn-large project-button"%>
 			<% end %>
 			

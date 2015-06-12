@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   acts_as_votable
   acts_as_taggable
   acts_as_followable
-  
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 

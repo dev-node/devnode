@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 	before_action :set_project, only: [:show, :edit, :update, :destroy, :downvote, :upvote, :follow]
 	before_action :check_current_user, only: [:edit, :update, :destroy]
-	before_action :check_logged_in, only: [:upvote, :downvote]
+	before_action :check_logged_in, only: [:upvote, :downvote, :follow, :unfollow]
 	def index
 		if !params[:q].nil?
       @projects = Project.search params[:q]
