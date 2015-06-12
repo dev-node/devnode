@@ -37,6 +37,12 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 2px 2px 2px black;
 }
 
+.page-header-text h2 {
+  font-size: 3em;
+  color: white;
+  text-shadow: 2px 2px 2px black;
+}
+
 .page-header-text h3 {
   color: white;
   text-shadow: 2px 2px 2px black;
@@ -109,6 +115,12 @@ hr {
   color: black;
   border: 1px solid black;
   z-index: 1000;
+}
+
+footer {
+  color: $green;
+  text-align: center;
+  font-weight: 700;
 }
 
 //Navbar styles
