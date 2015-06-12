@@ -9,7 +9,7 @@
       <div class="row-fluid">
         <% @projects.limit(10).each do |project| %>
           <div class="span6 feature-box">
-            <%= link_to (image_tag project.video_thumb, class: "feature-img"), project %>
+            <%= link_to (image_tag project.video_thumb, class: "feature-img" ), project %>
             <h2><%= link_to (project.name), project %></h2>
             <h5>by <%= project.user.nickname %></h5>
             <p style="max-width: 280px;"><%= project.description.truncate(175, separator: ' ') %></p>

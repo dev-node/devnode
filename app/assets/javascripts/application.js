@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+var main = function() {
+  $(".flash-button").on("click", function(){
+    $("#flash-message").remove();
+});
+};
+
+$(document).ready(main);

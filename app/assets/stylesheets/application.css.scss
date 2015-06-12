@@ -99,6 +99,13 @@ hr {
   margin-top: 50px;
 }
 
+#flash-message {
+  position: absolute;
+  left: 40%;
+  top: 100px;
+  z-index: 1000;
+}
+
 //Navbar styles
 
 #devnode-nav {
@@ -137,16 +144,17 @@ hr {
 //Featured page elements
 
 .feature-box {
-  background-color: #ececec;
-  border: 1px solid #d5d5d5;
+  // background-color: #ececec;
+  border: 1px solid black;
   border-radius: 7px;
   float: left;
   margin: 30px;
+  // width: 230px;
 }
 
 .bottom-feature-box {
   color: black;
-  border-top: 1px $blue solid;
+  border-top: 1px black solid;
   margin-bottom: 0px;
   padding-top: 1px;
   border-radius: 0px 0px 7px 7px;

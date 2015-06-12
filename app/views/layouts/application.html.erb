@@ -35,6 +35,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
+              <li><%= link_to 'MY PROFILE', user_path(current_user.id) %>
 		          <li><%= link_to 'LOG OUT', logout_path, method: :delete %></li>
 		        <% else %>
 		        <li><%= link_to '<i class="fa fa-github" style="font-size: 1.1em;"></i> GITHUB LOGIN'.html_safe, '/auth/github' %></li>
@@ -46,8 +47,9 @@
 
 	
 	  <% flash.each do |key, value| %>
-	    <div class="alert alert-<%= key %>">
-	      <%= value %>
+	    <div id="flash-message" class="alert alert-<%= key %>">
+	      <h3><%= value %></h3>
+        <div class="btn btn-sm btn-primary flash-button" style="width: 100%;">Close</div>
 	    </div>
 	  <% end %>
 	 

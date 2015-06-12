@@ -34,7 +34,7 @@
 					<% if project.tag_list.size > 0 %>
 					  <p>Tags: <%= raw project.tag_list.map { |t| link_to t, tag_path(t) }.join(", ") %></p>
 					<% end %>
-					<p><i class="fa fa-plus-circle"></i> <%= project.followers.size %> Followers</p>
+					<p><i class="fa fa-users"></i> <%= project.followers.size %> Followers</p>
 				</div>
 			</div>
 		</div>

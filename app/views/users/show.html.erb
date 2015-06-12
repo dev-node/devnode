@@ -1,13 +1,16 @@
 <div class="container main-container page-container">
   <div class="my_panel">
 	 	<div class="profile-box">
-		  <%= image_tag @user.profile.image %><br>
+		  <%= image_tag @user.profile.image, class: "profile-image" %><br>
 		  <h2><%= @user.nickname %></h2>
 		  <p><%= link_to @user.profile.website, @user.profile.website %></p>
 		  <p><%= link_to '<p><i class="fa fa-github"></i> Github</p>'.html_safe, @user.profile.github %></p>
 		  <p><%= link_to '<p><i class="fa fa-facebook"></i> Facebook</p>'.html_safe, @user.profile.facebook %></p>
 		  <p><%= link_to '<p><i class="fa fa-twitter"></i> Twitter</p>'.html_safe, @user.profile.twitter %></p>
 		  <p><%= link_to '<p><i class="fa fa-linkedin"></i> Linked In</p>'.html_safe, @user.profile.linkedin %></p>
+		  <% if current_user && @user.id == current_user.id %>
+		  	<%= link_to '<div class="btn btn-sm btn-primary" style="width: 100%;">Edit Profile</div>'.html_safe, edit_profile_path(@user.profile.id) %>
+		  <% end %>
 	  </div>
 
 	  <div class="bio">
@@ -15,7 +18,11 @@
 		 	<p><%= @user.profile.bio %></p>
 		 	<h2>Founder</h2>
 		 	<% @user.projects.each do |project| %>
-		 	 	<h4><%= link_to project.name, project_path(project) %></h4>
+		 	 	<h4><strong><%= link_to project.name, project_path(project) %></strong> 
+		 	 	<% if current_user && @user.id == current_user.id %>
+		 	 		| <%= link_to 'Edit', edit_project_path(project) %> | <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+		 	 		<% end %>
+		 	 		</h4>
 		 	 	<p><%= project.description %></p>
 		 	<% end %>
 		 	<h2>Contributor</h2>
