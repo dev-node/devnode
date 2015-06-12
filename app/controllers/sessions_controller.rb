@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
 	end
 
 	def auth_failure
-		redirect_to root_path
+		redirect_to :back
 	end
 end
