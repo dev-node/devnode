@@ -87,7 +87,7 @@ class ProjectsController < ApplicationController
 		def check_current_user
 			unless current_user && @project.user_id == current_user.id
 				flash[:warning] = "You have to be logged in as that user to do that!"
-				redirect_to root_path
+				redirect_to :back
 			end
 		end
 
