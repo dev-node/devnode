@@ -16,7 +16,11 @@
   <%= f.hidden_field :project_id, value: @project.id %>
 
   <div class="actions">
-    <%= f.submit %>
+    <% if current_user.nil? %>
+      <%= f.submit "Login to Post Comment" %>
+    <% else %>
+      <%= f.submit "Create Comment" %>
+    <% end %>
   </div>
 <% end %>
 </div>
