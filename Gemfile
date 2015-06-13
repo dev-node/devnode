@@ -19,6 +19,7 @@ gem 'omniauth-github'
 gem 'github_api'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 gem "acts_as_follower"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
