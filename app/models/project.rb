@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
   acts_as_taggable
   acts_as_followable
 
+  validates :name, :description, presence: true
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
