@@ -1,19 +1,54 @@
-    <div class="page-header" style="background-image:url('/images/devnode_slider_3.jpg');">
-      <div class="page-header-text" style="text-align: left; padding-left: 30px;">
-        <h2>Where Developers and Ideas Intersect.</h2>
-        <h4>Are you a developer looking for open source projects to work on?</h4>
-        <h4>Have an idea and looking for passionate developers to realize your vision?</h4>
+<div class="page-header" style="background-image:url('/images/devnode_slider_3.jpg');">
+  <div class="page-header-text" style="text-align: left; padding-left: 30px; padding-right: 30px;">
+    <h2>Where Developers and Ideas Intersect.</h2>
+    <h4>Are you a developer looking for open source projects to work on?</h4>
+    <h4>Have an idea and looking for passionate developers to realize your vision?</h4>
+    <h4>Sign up now and start collaborating!</h4>
+  </div>
+</div>
+
+<div class="container main-container">
+    <div class="row-fluid">
+        <h2>Latest Featured Projects</h2><hr>
+        <% @projects.limit(3).each do |project| %>
+          <div class="span6 feature-box">
+            <%= link_to (image_tag project.video_thumb, class: "feature-img" ), project %>
+            <h2><%= link_to (project.name), project %></h2>
+            <h5>by <%= project.user.nickname %></h5>
+            <p style="max-width: 280px;"><%= project.description.truncate(175, separator: ' ') %></p>
+            <div class="bottom-feature-box">
+              <% votes = project.get_upvotes.size - project.get_downvotes.size %>
+              <p><%= votes %> 
+              <% if votes >= 0 %>
+              <i class="fa fa-thumbs-o-up"></i>
+              <% else %>
+              <i class="fa fa-thumbs-o-down"></i>
+              <% end %>
+              </p>
+              <p>
+              <%= project.followers.size %> Followers
+              </p>
+            </div>
+          </div>
+        <% end %>
       </div>
+
+    <div class="row-fluid" style="clear:both; padding-top: 60px;">
+        <hr>
+        <h2>What is Devnode?</h2><br>
+        <div style="max-width: 700px; margin: auto; text-align:center;">
+        <%= image_tag 'idea_image.png', class: 'clipart-image' %>
+        <h3>It starts with an idea...</h3>
+        <p style="margin-bottom: 100px;">Devnode connects ideas with developers who share the same passion.</p>
+        <%= image_tag 'team_image.png', class: 'clipart-image' %> 
+        <h3>And a team...</h3>
+        <p style="margin-bottom: 100px;">Our platform empowers developers to work on projects by presenting ideas in a pitch format. This helps ideas to transform into products that benefit the entire community.</p>
+    
+        <br>
+        <h3>Tell me more...</h3>
+        <p>DevNode is a website that fosters collaboration and helps developers find interesting open source projects to work on.</p>
+        <p>We present open source projects in a pitch format to empower other developers to take action and make it easy for developers of all skills to get involved.  By effectively communicating the project mission, great software can be crafted to benefit of the entire community.</p>
+        <h3><%= link_to '<i class="fa fa-github" style="font-size: 1.1em;"></i> GITHUB LOGIN'.html_safe, '/auth/github' %></h3> 
+        </div>
     </div>
-
-    <div class="container main-container">
-
-    </div>
-
-
-    <script>
-    $('.carousel').carousel({
-        interval: 4000,
-        pause: "none" 
-    })
-    </script>
+</div>
