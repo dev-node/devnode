@@ -3,11 +3,11 @@
 	 	<div class="profile-box">
 		  <%= image_tag @user.profile.image, class: "profile-image" %><br>
 		  <h2><%= @user.nickname %></h2>
-		  <p><%= link_to @user.profile.website, @user.profile.website %></p>
+		  <p><%= link_to @user.profile.website, @user.profile.website unless @user.profile.website.nil? %></p>
 		  <p><%= link_to '<p><i class="fa fa-github"></i> Github</p>'.html_safe, @user.profile.github %></p>
-		  <p><%= link_to '<p><i class="fa fa-facebook"></i> Facebook</p>'.html_safe, @user.profile.facebook %></p>
-		  <p><%= link_to '<p><i class="fa fa-twitter"></i> Twitter</p>'.html_safe, @user.profile.twitter %></p>
-		  <p><%= link_to '<p><i class="fa fa-linkedin"></i> Linked In</p>'.html_safe, @user.profile.linkedin %></p>
+		  <p><%= link_to '<p><i class="fa fa-facebook"></i> Facebook</p>'.html_safe, @user.profile.facebook unless @user.profile.facebook.nil? %></p>
+		  <p><%= link_to '<p><i class="fa fa-twitter"></i> Twitter</p>'.html_safe, @user.profile.twitter unless @user.profile.twitter.nil? %></p>
+		  <p><%= link_to '<p><i class="fa fa-linkedin"></i> Linked In</p>'.html_safe, @user.profile.linkedin unless @user.profile.linkedin.nil? %></p>
 		  <% if current_user && @user.id == current_user.id %>
 		  	<%= link_to '<div class="btn btn-sm btn-primary" style="width: 100%;">Edit Profile</div>'.html_safe, edit_profile_path(@user.profile.id) %>
 		  <% end %>

@@ -7,13 +7,15 @@ class Project < ActiveRecord::Base
   acts_as_taggable
   acts_as_followable
 
+  validates :name, :description, presence: true
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
   self.per_page = 10
 
   has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
-                              :default_url => "/images/:style/missing.png",
+                              :default_url => "",
                               :storage => :s3,
                               :s3_credentials => Proc.new{ |a| a.instance.s3_credentials }
 
