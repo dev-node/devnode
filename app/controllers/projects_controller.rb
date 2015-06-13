@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @project.update(project_params)
-				format.html { redirect_to user_path(current_user.id), notice: 'Project was successfully updated.' }
+				format.html { redirect_to root_path, notice: 'Project was successfully updated.' }
 				format.json { render :show, status: :ok, location: user_path(current_user.id) }
 			else
 				format.html { render :edit }
@@ -105,6 +105,6 @@ class ProjectsController < ApplicationController
 		end
 
 		def project_params
-			params.require(:project).permit(:name, :description, :video, :repo, :tag_list, :fulldescription, :languages, :q, :picture)
+			params.require(:project).permit(:name, :description, :video, :repo, :tag_list, :fulldescription, :languages, :q, :picture, :twitter, :facebook, :trello)
 		end
 end

@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
   self.per_page = 10
 
   has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
-                              :default_url => "/images/:style/missing.png",
+                              :default_url => "",
                               :storage => :s3,
                               :s3_credentials => Proc.new{ |a| a.instance.s3_credentials }
 
