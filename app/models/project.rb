@@ -13,10 +13,15 @@ class Project < ActiveRecord::Base
   self.per_page = 10
 
   has_attached_file :picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
-                              :default_url => "/images/:style/missing.png"
+                              :default_url => "/images/:style/missing.png",
+                              :storage => :s3,
+                              :s3_credentials => Proc.new{ |a| a.instance.s3_credentials }
 
   validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 
+  def s3_credentials
+    {:bucket => "dev-node", :access_key_id => ENV["AWS_ACCESS_KEY_ID"], :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"]}
+  end
 
   # after_save do
   #   video_hash = JSON.parse(open("https://vimeo.com/api/oembed.json?url=#{self.video}").read)
