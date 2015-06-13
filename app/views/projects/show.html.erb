@@ -8,7 +8,7 @@
 					<iframe src=<%= @project.video_embed %> frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video"></iframe>
 				<% end %>
 				<% if @project.video == "" %>
-				<%= image_tag @user.picture.url %>
+				<%= image_tag @project.picture.url(:medium) %>
 				<% end %>
 			</div>
 		</div>

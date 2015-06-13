@@ -31,9 +31,11 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(project_params)
 		@project.user_id = current_user.id
-		json = HTTParty.get("https://vimeo.com/api/oembed.json?url=#{@project.video}")
-		video_hash = JSON.parse(json.body)
-  	@project.video_thumb = video_hash['thumbnail_url']
+		unless @project.video == ""
+			json = HTTParty.get("https://vimeo.com/api/oembed.json?url=#{@project.video}")
+			video_hash = JSON.parse(json.body)
+	  	@project.video_thumb = video_hash['thumbnail_url']
+    end
 		if @project.save
 			redirect_to @project
 		else
