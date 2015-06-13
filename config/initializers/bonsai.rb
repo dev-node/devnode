@@ -1,1 +1,1 @@
-Elasticsearch::Model.client = Elasticsearch::Client.new url: ENV['BONSAI_URL']
+Elasticsearch::Model.client = Elasticsearch::Client.new url: 'https://71x8r660:20lfnnnng402xeai@elm-4724790.us-east-1.bonsai.io'
