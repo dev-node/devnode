@@ -36,6 +36,7 @@ gem 'shareable'
 gem 'httparty'
 gem 'will_paginate', '~> 3.0.6'
 gem "paperclip", "~> 4.2"
+gem 'aws-sdk', '~> 1.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
