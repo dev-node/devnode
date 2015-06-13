@@ -7,6 +7,9 @@
 				<% unless @project.video == "" %>  
 					<iframe src=<%= @project.video_embed %> frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video"></iframe>
 				<% end %>
+				<% if @project.video == "" %>
+				<%= image_tag @user.picture.url %>
+				<% end %>
 			</div>
 		</div>
 		<div style="float:left; margin-left: 80px;">	

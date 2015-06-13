@@ -1,4 +1,4 @@
-<%= form_for @project do |f| %>
+<%= form_for @project, :url => projects_path, :html => { :multipart => true } do |f| %>
 	<% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -19,11 +19,12 @@
   <%= f.text_area :description, placeholder: "255 Characters Max" %>
 
   <h3>3. Give a <span>persuasive</span> pitch and attract a team</h3>
-  <h4>Upload a <%= link_to "Vimeo", "https://www.vimeo.com", :target => '_blank' %> video to get your project featured.</h4>
-  <%= f.text_field :video, placeholder: "Enter Vimeo Link" %>
+  <h4>Upload a <%= link_to "Vimeo", "https://www.vimeo.com", :target => '_blank' %> video to get your project featured.  If you don't have a video, upload a picture.</h4>
+   <i class="fa fa-vimeo-square" style="color: $green; font-size: 16px;"></i> <%= f.text_field :video, placeholder: "Enter Vimeo link to get featured" %><br><br>
+   <i class="fa fa-picture-o" style="color: $green; font-size: 16px; float: left;"></i> <%= f.file_field :picture %><br>
 
   <h3>4. Provide project details</h3>
-  <h4>Tell developers more about the project and how to get involved.</h4>
+  <h4>Tell developers more about the project and provide desired features.</h4>
   <%= f.text_area :fulldescription, placeholder: "Ex: About this project, key features, FAQ sections" %>
 
   <h3>5. List language requirements</h3>
