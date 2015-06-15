@@ -19,7 +19,7 @@
     <% if current_user.nil? %>
       <%= f.submit "Login to Post Comment" %>
     <% else %>
-      <%= f.submit "Create Comment" %>
+      <%= f.submit "Create Comment", class: "btn my-btn" %>
     <% end %>
   </div>
 <% end %>

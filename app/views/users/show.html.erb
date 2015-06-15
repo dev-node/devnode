@@ -9,7 +9,7 @@
 		  <p><%= link_to '<p><i class="fa fa-twitter"></i> Twitter</p>'.html_safe, @user.profile.twitter unless @user.profile.twitter.nil? %></p>
 		  <p><%= link_to '<p><i class="fa fa-linkedin"></i> Linked In</p>'.html_safe, @user.profile.linkedin unless @user.profile.linkedin.nil? %></p>
 		  <% if current_user && @user.id == current_user.id %>
-		  	<%= link_to '<div class="btn btn-sm btn-primary" style="width: 100%;">Edit Profile</div>'.html_safe, edit_profile_path(@user.profile.id) %>
+		  	<%= link_to '<div class="btn my-btn" style="width: 100%;">Edit Profile</div>'.html_safe, edit_profile_path(@user.profile.id) %>
 		  <% end %>
 	  </div>
 

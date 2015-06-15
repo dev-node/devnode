@@ -15,8 +15,10 @@
  */
 $font: 'Roboto Condensed', sans-serif;
 $green: #5aa02c;
-$blue: #329BC2; 
+$darkgreen: #38641c; 
 $grid-float-breakpoint: 1000px;
+$black-opaque: rgba(0, 0, 0, 0.8);
+$light-green: lighten($green, 10%);
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -246,4 +248,17 @@ footer {
 .form-header {
   overflow: auto;
   width: 70%;
+}
+
+//Button Style
+.my-btn {
+  // font-size: 16px;
+  cursor: pointer;
+  // padding: 5px;
+  // color: white;
+  @include button-variant(white, $black-opaque, $black-opaque);
+  &:hover {
+    transition: all .4s ease-in-out;
+    @include button-variant(black, $light-green, $light-green);
+  }
 }

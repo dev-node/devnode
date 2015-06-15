@@ -39,9 +39,9 @@
 
 			<!-- FOLLOW -->
 			<% if current_user.nil? || !current_user.following?(@project) %>
-				<%= link_to "Join the Team!", follow_project_path(@project), class: "btn btn-large project-button" %>
+				<%= link_to "Join the Team!", follow_project_path(@project), class: "btn my-btn" %>
 			<% elsif current_user.following?(@project) %>
-				<%= link_to "Unfollow", unfollow_project_path(@project), class: "btn btn-large project-button"%>
+				<%= link_to "Unfollow", unfollow_project_path(@project), class: "btn my-btn"%>
 			<% end %>
 			
 

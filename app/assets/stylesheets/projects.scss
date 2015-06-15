@@ -35,16 +35,6 @@ $white_opaque: rgba(255, 255, 255, 0.7);
 	}
 }
 
-input[type=submit] {
-  font-size: 16px;
-  cursor: pointer;
-  margin: 5px;
-  padding: 5px;
-  color: white;
-  background-color: $green;
-  
-}
-
 #comment_comment {
   width: 100%;
 }
@@ -58,10 +48,10 @@ input[type=submit] {
   font-size: 1.2em;
 }
 
-.project-button {
-  background-color: $green !important;
-  color: white;
-}
+// .project-button {
+//   background-color: $green !important;
+//   color: white;
+// }
 
 .project-box {
 	display: inline;
