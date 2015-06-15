@@ -14,7 +14,7 @@
           <div class="span6 feature-box">
             <%= link_to (image_tag project.video_thumb, class: "feature-img" ), project %>
             <h2><%= link_to (project.name), project %></h2>
-            <h5>by <%= project.user.nickname %></h5>
+            <h5>by <%= link_to project.user.nickname, user_path(project.user.id) %></h5>
             <p style="max-width: 280px;"><%= project.description.truncate(175, separator: ' ') %></p>
             <div class="bottom-feature-box">
               <% votes = project.get_upvotes.size - project.get_downvotes.size %>
