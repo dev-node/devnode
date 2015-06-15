@@ -61,7 +61,7 @@
 	<h4>The Team</h4>
 	<%= image_tag(@project.user.profile.image, class: "user-avatar-sm") %>
 	<% @project.followers.each do |p| %>
-		<%= image_tag(p.profile.image) %>
+		<%= image_tag(p.profile.image), class: "user-avatar-sm" %>
 	<% end %>
 
 	<!-- COMMENTS -->
