@@ -31,11 +31,7 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.new(project_params)
 		@project.user_id = current_user.id
-		unless @project.video == ""
-			json = HTTParty.get("https://vimeo.com/api/oembed.json?url=#{@project.video}")
-			video_hash = JSON.parse(json.body)
-	  	@project.video_thumb = video_hash['thumbnail_url']
-    end
+		get_video_thumb
 		if @project.save
 			redirect_to @project
 		else
@@ -44,6 +40,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
+		get_video_thumb
 		respond_to do |format|
 			if @project.update(project_params)
 				format.html { redirect_to root_path, notice: 'Project was successfully updated.' }
@@ -86,6 +83,14 @@ class ProjectsController < ApplicationController
   end
 
 	private
+		def get_video_thumb
+			unless @project.video == ""
+			json = HTTParty.get("https://vimeo.com/api/oembed.json?url=#{@project.video}")
+			video_hash = JSON.parse(json.body)
+	  	@project.video_thumb = video_hash['thumbnail_url']
+    	end
+    end
+
 		def check_current_user
 			unless current_user && @project.user_id == current_user.id
 				flash[:warning] = "You have to be logged in as that user to do that!"
